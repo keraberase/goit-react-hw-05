@@ -1,7 +1,7 @@
 import { Link, NavLink, Outlet, useParams } from "react-router-dom";
 
 import { useEffect, useState } from "react";
-import { getMovieDetails } from "../API/api";
+import { getMovieDetails } from "../components/API/api";
 import css from "./MovieDetailsPage.module.css";
 
 export const MoviesPage = () => {
