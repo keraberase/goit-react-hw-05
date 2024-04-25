@@ -2,7 +2,6 @@ import {
   Link,
   NavLink,
   Outlet,
-  useLocation,
   useParams,
 } from "react-router-dom";
 
@@ -13,7 +12,7 @@ import css from "./MovieDetailsPage.module.css";
 export const MoviesPage = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
-  const location = useLocation();
+
 
   useEffect(() => {
     const movieDetails = async () => {
