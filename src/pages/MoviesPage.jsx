@@ -13,19 +13,23 @@ const MoviesPage = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      setLoader(true);
       try {
+        setLoader(true);
         const queryParam = searchParams.get("query");
         const data = await searchMovie(queryParam);
         setMovies(data.results);
+        setError(null);
       } catch (error) {
         setError(error.message);
       } finally {
         setLoader(false);
       }
     };
+
     if (searchParams.has("query")) {
       fetchData();
+    } else {
+      setMovies([]);
     }
   }, [searchParams]);
 
@@ -37,7 +41,7 @@ const MoviesPage = () => {
     <div>
       <SearchBar onSubmit={handleSubmit} />
       {loader && <Loader />}
-      {error && <p>Some error happened</p>}
+      {error && <p>{error}</p>}
       {movies.length > 0 && <MovieList movies={movies} />}
     </div>
   );

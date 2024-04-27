@@ -1,12 +1,19 @@
-import { Link, NavLink, Outlet, useParams } from "react-router-dom";
+import {
+  NavLink,
+  Outlet,
+  useParams,
+  useLocation,
+} from "react-router-dom";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { getMovieDetails } from "../components/API/api";
 import css from "./MovieDetailsPage.module.css";
 
 export const MoviesPage = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
+  const location = useLocation();
+  const goBackLink = useRef(location.state?.from || "/");
 
   useEffect(() => {
     const movieDetails = async () => {
@@ -18,9 +25,9 @@ export const MoviesPage = () => {
 
   return (
     <>
-      <div className={css.back}>
-        <Link to="/">Go back</Link>
-      </div>
+      <NavLink to={goBackLink.current}>
+        <button className={css.btn}> Go back</button>
+      </NavLink>
       {movie && (
         <div className={css.container}>
           <img

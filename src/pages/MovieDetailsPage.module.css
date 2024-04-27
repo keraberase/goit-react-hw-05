@@ -1,9 +1,61 @@
-.container {
+.movie-container {
   display: flex;
   flex-direction: row;
-  gap: 24px;
-  padding-top: 12px;
+  gap: 15px;
 }
-.back {
-  padding-top: 20px;
+
+img {
+    padding-bottom: 10px;
+    padding-top: 10px;
+    display: block;
+    width: 250px;
+    height: auto;
 }
+
+.movie-details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+.additionals {
+    border-top: 2px solid gray;
+    border-bottom: 2px solid gray;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+
+    h4 {
+        margin-bottom: 10px;
+     }
+
+     ul {
+        padding-left: 20px;
+        list-style: disc;
+     }
+}
+
+.btn {
+    margin-top: 10px;
+    display: inline-block;
+    padding: 5px 5px;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+    background-color: red;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: rosybrown;
+  }
+  
+  .btn:focus {
+    outline: none;
+  }
